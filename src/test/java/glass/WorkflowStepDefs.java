@@ -28,7 +28,7 @@ public class WorkflowStepDefs {
     }
 
     @Then("a new prompt shows up that asks for a Name and a Description for a new project")
-    public void aNewPromptShowsUpThatAsksForANameAndADescriptionForANewProject() {
+    public void checkPromptAppears() {
     }
 
     @Given("I am on {string}")
@@ -44,7 +44,7 @@ public class WorkflowStepDefs {
     }
 
     @Then("a Workflow box shows the workflow associated with TestIssue")
-    public void aWorkflowBoxShowsTheWorkflowAssociatedWithTestIssue() {
+    public void workflowBoxAppears() {
     }
 
     @Given("I am on <link>")
@@ -60,7 +60,7 @@ public class WorkflowStepDefs {
     }
 
     @Then("I see a Workflow Transitions box with the following elements: Create, Start Progress, Review Problem, Finish Issue, Close Issue")
-    public void iSeeAWorkflowTransitionsBoxWithTheFollowingElementsCreateStartProgressReviewProblemFinishIssueCloseIssue() {
+    public void checkCorrectElementsAppear() {
     }
 
 
