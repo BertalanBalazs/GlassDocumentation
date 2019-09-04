@@ -54,4 +54,8 @@ public class QuickLinks {
     @And("I choose the first option")
     public void iChooseTheFirstOption() {
     }
+
+    @And("I click on the Arrow link next to the {string} text")
+    public void iClickOnTheArrowLinkNextToTheText(String arg0) {
+    }
 }
