@@ -17,27 +17,27 @@ public class CheckVersions {
     public void iAmOnTheProjectPage() {
     }
 
-    @When("I click on {string} text option.")
+    @When("I click on Releases text option.")
     public void iClickOnReleasesTextOption() {
     }
 
-    @And("I fill the {string} input field with {string} text.")
+    @And("I fill the Version name input field with TestVersion text.")
     public void iFillTheVersionNameInputFieldWithTestVersionText() {
     }
 
-    @And("I click on the the {string} button.")
-    public void iClickOnTheTheAddButton() {
+    @And("I click on the the Add button next to the new version input screen.")
+    public void iClickOnTheTheAddButtonNextToTheNewVersionInputScreen() {
     }
 
-    @And("I click on the {string} option.")
+    @And("I click on the Glass documentation option.")
     public void iClickOnTheGlassDocumentationOption() {
     }
 
-    @And("I click on the {string} text option.")
+    @And("I click on the Version text option.")
     public void iClickOnTheVersionTextOption() {
     }
 
-    @Then("I see the {string} version in the list.")
+    @Then("I see the TestVersion version in the list.")
     public void iSeeTheTestVersionVersionInTheList() {
     }
 }
