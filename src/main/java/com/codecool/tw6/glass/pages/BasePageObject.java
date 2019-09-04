@@ -20,6 +20,10 @@ public class BasePageObject {
         return BROWSER;
     }
 
+    public void navigateToGlassSummaryPage(){
+        driver.get("https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass");
+    }
+
     public void navigate(String location){
         driver.get(location);
     }
