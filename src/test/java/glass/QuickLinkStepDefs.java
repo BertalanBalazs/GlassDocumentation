@@ -22,13 +22,15 @@ public class QuickLinkStepDefs {
     Scenario: General page quick link test
      */
 
-    @Given("I am logged in as system admin")
-    public void iAmLoggedInAsSystemAdmin() {
-        loginPage.login();
+
+    @Given("I am on the Basic summary page")
+    public void iAmOnTheBasicSummaryPage() {
+        basePageObject.openProjectPage("DEMO");
     }
 
-    @And("I am on the Basic summary page")
-    public void iAmOnTheBasicSummaryPage() {
+    @And("I am logged in as system admin")
+    public void iAmLoggedInAsSystemAdmin() {
+        loginPage.login();
     }
 
     @When("I click on the quick link next to the text Basic summary")
