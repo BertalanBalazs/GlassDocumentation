@@ -6,7 +6,7 @@ Feature: Create and handle workflows as an admin
     Then I should be logged in
 
   Scenario Outline: To check if it is possible to create a new workflow when logged in as an admin.
-    Given I visit the following "<link>"
+    Given I visit the following "link"
     When I click on the Add workflow menu
     Then a new prompt shows up that asks for a Name and a Description for a new project
 
@@ -15,7 +15,7 @@ Feature: Create and handle workflows as an admin
 
 
     Scenario Outline: Check the correct workflow is shown
-      Given I am on "<url>"
+      Given I am on "url"
       When I click on Issue Types menu
       And I select TestIssue
       Then a Workflow box shows the workflow associated with TestIssue
@@ -24,7 +24,7 @@ Feature: Create and handle workflows as an admin
         | https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass |
 
   Scenario Outline: Check that the workflow transitions are correctly shown on issue page
-      Given I am on "<url>"
+      Given I am on "url"
       When I clik on the Issue Types
       And I click on TestIssue
       Then I see a Workflow Transitions box with the following elements: Create, Start Progress, Review Problem, Finish Issue, Close Issue
@@ -33,8 +33,8 @@ Feature: Create and handle workflows as an admin
         | https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass |
 
     Scenario Outline: Workflow appears on the settings page outside of glass
-      Given I visit "<url>"
-      Then "<custom workflow name>" appears on the page
+      Given I visit "ur>"
+      Then "custom workflow name" appears on the page
 
       Examples: url
         | https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/DEMO/workflows
