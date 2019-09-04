@@ -26,4 +26,16 @@ public class QuickLinks {
     @Then("the Project settings Details opens in a new window")
     public void theProjectSettingsDetailsOpensInANewWindow() {
     }
+
+    @When("I click on {string}")
+    public void iClickOn(String arg0) {
+    }
+
+    @And("I click on the quick link next to the {string} text")
+    public void iClickOnTheQuickLinkNextToTheText(String arg0) {
+    }
+
+    @Then("the Project settings {string} opens in a new window")
+    public void theProjectSettingsOpensInANewWindow(String arg0) {
+    }
 }
