@@ -16,4 +16,8 @@ public class BasePageObject {
     public static String getBrowser(){
         return BROWSER;
     }
+
+    public void navigate(String location){
+        driver.get(location);
+    }
 }
