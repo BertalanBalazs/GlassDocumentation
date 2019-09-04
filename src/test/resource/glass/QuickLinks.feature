@@ -1,15 +1,15 @@
 Feature: Quick Links
 
   Scenario: General page quick link test
-    Given I am logged in as system admin
-      And I am on the Basic summary page
+    Given I am on the Basic summary page
+      And I am logged in as system admin
     When I click on the quick link next to the text Basic summary
     Then the Project settings Details opens in a new window
 
 
   Scenario Outline: Simple item's quick link test
-    Given I am logged in as system admin
-      And I am on the Basic summary page
+    Given I am on the Basic summary page
+      And I am logged in as system admin
     When I click on "<nav-item>"
       And I click on the quick link next to the "<inner-header>" text
     Then the Project settings "<project-config-heading>" opens in a new window
@@ -22,8 +22,8 @@ Feature: Quick Links
 
 
   Scenario Outline: Issue Types quick link test
-    Given I am logged in as system admin
-      And I am on the Basic summary page
+    Given I am on the Basic summary page
+      And I am logged in as system admin
     When I click on the Issue Types dropdown
       And I choose the first option
       And I click on the quick link next to the "<inner-header>" text
@@ -36,8 +36,8 @@ Feature: Quick Links
 
 
   Scenario Outline: General page's subpages quick link test
-    Given I am logged in as system admin
-      And I am on the Basic summary page
+    Given I am on the Basic summary page
+      And I am logged in as system admin
     When I click on "<menu-item>"
       And I click on the Arrow link next to the "<menu-item>" text
     Then the Project settings "<inner-page-header>" opens in a new window

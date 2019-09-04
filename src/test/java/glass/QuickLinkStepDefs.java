@@ -1,5 +1,7 @@
 package glass;
 
+import com.codecool.tw6.glass.pages.*;
+import com.codecool.tw6.glass.utility.BrowserFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -7,12 +9,22 @@ import cucumber.api.java.en.When;
 
 public class QuickLinkStepDefs {
 
+    LoginPage loginPage = new LoginPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    BasePageObject basePageObject = new BasePageObject(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    GeneralPage generalPage = new GeneralPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    IssueTypesPage issueTypesPage = new IssueTypesPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    NotificationPage notificationPage = new NotificationPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    PeoplePage peoplePage = new PeoplePage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    PermissionPage permissionPage = new PermissionPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    ProjectSettingPage projectSettingPage = new ProjectSettingPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+
     /*
     Scenario: General page quick link test
      */
 
     @Given("I am logged in as system admin")
     public void iAmLoggedInAsSystemAdmin() {
+        loginPage.login();
     }
 
     @And("I am on the Basic summary page")
