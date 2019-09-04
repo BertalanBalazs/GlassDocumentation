@@ -24,6 +24,11 @@ public class BasePageObject {
         driver.get(location);
     }
 
+    // project can be either: DEMO or ST
+    public void openProjectPage(String project){
+        driver.get("https://jira2.codecool.codecanvas.hu/projects/" + project + "?selectedItem=com.codecanvas.glass:glass");
+    }
+
     public void waitForElement(WebElement element, int waitTime){
         WebDriverWait wait = new WebDriverWait(driver, waitTime);
         wait.until(ExpectedConditions.visibilityOf(element));
