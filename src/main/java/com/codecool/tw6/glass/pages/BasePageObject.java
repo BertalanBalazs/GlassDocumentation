@@ -20,21 +20,12 @@ public class BasePageObject {
         return BROWSER;
     }
 
-    public void navigateToGlassSummaryPage(){
-        driver.get("https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass");
-    }
-
     public void navigate(String location){
         driver.get(location);
     }
 
-    // project can be either: DEMO or ST
-    public void openProjectPage(String project){
-        driver.get("https://jira2.codecool.codecanvas.hu/projects/" + project + "?selectedItem=com.codecanvas.glass:glass");
-    }
-
-    public void waitForElement(WebElement element, int waitTime){
-        WebDriverWait wait = new WebDriverWait(driver, waitTime);
+    public void waitForElement(WebElement element, int time){
+        WebDriverWait wait = new WebDriverWait(driver, time);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 }
