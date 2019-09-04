@@ -7,6 +7,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 public class QuickLinkStepDefs {
 
@@ -45,16 +47,19 @@ public class QuickLinkStepDefs {
     Scenario: Simple item's quick link test
      */
 
-    @When("I click on {string}")
-    public void iClickOn(String arg0) {
+    @When("I click on {WebElement}")
+    public void iClickOn(WebElement headerItem) {
+        generalPage.clickOnHeaderItem(headerItem);
     }
 
-    @And("I click on the quick link next to the {string}")
-    public void iClickOnTheQuickLinkNextToThe(String arg0) {
+    @And("I click on the quick link next to the inner header")
+    public void onTheIClickOnTheQuickLinkNextToTheInnerHeader() {
+        generalPage.clickOnQuickLink();
     }
 
     @Then("the Project settings {string} opens in a new window")
     public void theProjectSettingsOpensInANewWindow(String arg0) {
+        Assert.assertEquals("Project settings", projectSettingPage.getHeaderText());
     }
 
     /*
@@ -92,4 +97,5 @@ public class QuickLinkStepDefs {
     @Then("the subpage Project settings {string} opens in a new window")
     public void theSubpageProjectSettingsOpensInANewWindow(String arg0) {
     }
+
 }

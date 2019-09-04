@@ -11,14 +11,14 @@ Feature: Quick Links
     Given I am on the Basic summary page
       And I am logged in as system admin
     When I click on "<header-item>"
-      And I click on the quick link next to the "<inner-header>"
+      And I click on the quick link next to the inner header
     Then the Project settings "<project-config-heading>" opens in a new window
 
     Examples:
-      | inner-header        | header-item         | project-config-heading |
-      | People              | peopleHeader        | Users and roles        |
-      | Permission Matrix   | permissionsHeader   | Project Permissions    |
-      | Notification Matrix | notificationsHeader | Notifications          |
+      | header-item         | project-config-heading |
+      | peopleHeader        | Users and roles        |
+      | permissionsHeader   | Project Permissions    |
+      | notificationsHeader | Notifications          |
 
 
   Scenario Outline: Issue Types quick link test
