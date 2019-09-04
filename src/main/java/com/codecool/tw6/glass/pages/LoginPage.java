@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
-    private static String url = "https://jira2.codecool.codecanvas.hu/login.jsp";
+    private static String url = "https://jira2.codecool.codecanvas.hu/";
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -19,7 +19,7 @@ public class LoginPage {
     private static WebElement username;
     @FindBy(id = "login-form-password")
     private static WebElement password;
-    @FindBy(id = "login-form-submit")
+    @FindBy(id = "login")
     private static WebElement loginBtn;
     @FindBy(id = "logo")
     private static WebElement logo;
