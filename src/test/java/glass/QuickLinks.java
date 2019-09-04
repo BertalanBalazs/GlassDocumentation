@@ -27,6 +27,10 @@ public class QuickLinks {
     public void theProjectSettingsDetailsOpensInANewWindow() {
     }
 
+    /*
+    Scenario: Simple item's quick link test
+     */
+
     @When("I click on {string}")
     public void iClickOn(String arg0) {
     }
@@ -37,5 +41,17 @@ public class QuickLinks {
 
     @Then("the Project settings {string} opens in a new window")
     public void theProjectSettingsOpensInANewWindow(String arg0) {
+    }
+
+    /*
+    Scenario: Issue Types quick link test
+     */
+
+    @When("I click on the Issue Types dropdown")
+    public void iClickOnTheIssueTypesDropdown() {
+    }
+
+    @And("I choose the first option")
+    public void iChooseTheFirstOption() {
     }
 }
