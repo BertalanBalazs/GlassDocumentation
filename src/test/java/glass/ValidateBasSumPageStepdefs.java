@@ -4,22 +4,23 @@ package glass;
 import com.codecool.tw6.glass.pages.GeneralPage;
 import com.codecool.tw6.glass.pages.LoginPage;
 import com.codecool.tw6.glass.utility.BrowserFactory;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertEquals;
 
 public class ValidateBasSumPageStepdefs {
 
     GeneralPage generalPage = new GeneralPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    LoginPage loginPage = new LoginPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
     private String expectedvalue;
     private String resultValue;
 
     @Given("I am on the Basic Summary page")
     public void iAmOnTheBasicSummaryPage() {
-        LoginPage.login();
+        loginPage.login();
         generalPage.navigate("https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass");
     }
 
