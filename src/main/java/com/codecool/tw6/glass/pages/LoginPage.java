@@ -20,6 +20,7 @@ public class LoginPage {
         userWin.sendKeys(System.getenv("USER"));    // todo: Make a "USER" environment variable
         passwordWin.sendKeys(System.getenv("PASSWORD"));    //todo: Make a "PASSWORD" environment variable
         loginButton.click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("logo"))));
 
 
     }

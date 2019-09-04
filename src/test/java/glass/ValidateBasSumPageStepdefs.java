@@ -2,6 +2,7 @@ package glass;
 
 
 import com.codecool.tw6.glass.pages.GeneralPage;
+import com.codecool.tw6.glass.pages.LoginPage;
 import com.codecool.tw6.glass.utility.BrowserFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -12,6 +13,7 @@ public class ValidateBasSumPageStepdefs {
     GeneralPage generalPage = new GeneralPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
     @Given("I am on the Basic Summary page")
     public void iAmOnTheBasicSummaryPage() {
+        LoginPage.login();
         generalPage.navigate("https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass");
     }
 
