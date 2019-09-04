@@ -7,38 +7,37 @@ import cucumber.api.java.en.When;
 
 public class ValidateSchemeChange {
 
+    @Given("I am on the project's Glass Documentation page")
+    public void iAmOnTheProjectSGlassDocumentationPage() {
+    }
+
 
     @When("I click Schemes")
     public void iClickSchemes() {
-
+        
     }
 
-    @Given("I am on <website>")
-    public void iAmOnWebsite() {
-
-    }
-
-    @And("I click the cogwheel in the <scheme> row")
-    public void iClickTheCogwheelInTheSchemeRow() {
-
+    @And("I click the cogwheel in the Issue Type Scheme row")
+    public void iClickTheCogwheelInTheIssueTypeSchemeRow() {
+        
     }
 
     @And("I input admin credentials")
     public void iInputAdminCredentials() {
-
+        
     }
 
-    @And("I set <demo scheme> for the project")
-    public void iSetDemoSchemeForTheProject() {
-
+    @And("I set Demo Issue Type Scheme for the project")
+    public void iSetDemoIssueTypeSchemeForTheProject() {
+        
     }
 
-    @And("I go to <website>")
-    public void iGoToWebsite() {
-
+    @And("I go to the project's Glass Documentation page")
+    public void iGoToTheProjectSGlassDocumentationPage() {
+        
     }
 
-    @Then("the <scheme> displays <demo scheme>")
-    public void theSchemeDisplaysDemoScheme() {
+    @Then("the Issue Type Scheme displays Demo Issue Type Scheme")
+    public void theIssueTypeSchemeDisplaysDemoIssueTypeScheme() {
     }
 }
