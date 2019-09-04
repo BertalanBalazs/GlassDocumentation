@@ -1,7 +1,10 @@
 package com.codecool.tw6.glass.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePageObject {
     private static final String BROWSER = System.getenv("BROWSER");
@@ -19,5 +22,10 @@ public class BasePageObject {
 
     public void navigate(String location){
         driver.get(location);
+    }
+
+    public void waitForElement(WebElement element, int time){
+        WebDriverWait wait = new WebDriverWait(driver, time);
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 }

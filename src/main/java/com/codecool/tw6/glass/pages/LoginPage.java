@@ -12,15 +12,15 @@ public class LoginPage {
     private static WebDriverWait wait = new WebDriverWait(driver, 10);
 
     public static void login(){
-        WebElement userWin = driver.findElement(By.id("login-form-username"));
-        WebElement passwordWin = driver.findElement(By.id("login-form-password"));
-        WebElement loginButton = driver.findElement(By.id("login-form-submit"));
         driver.get("https://jira2.codecool.codecanvas.hu/login.jsp");
+        WebElement userWin = driver.findElement(By.id("login-form-username"));
         wait.until(ExpectedConditions.visibilityOf(userWin));
         userWin.sendKeys(System.getenv("USER"));    // todo: Make a "USER" environment variable
+        WebElement passwordWin = driver.findElement(By.id("login-form-password"));
         passwordWin.sendKeys(System.getenv("PASSWORD"));    //todo: Make a "PASSWORD" environment variable
+        WebElement loginButton = driver.findElement(By.id("login-form-submit"));
         loginButton.click();
-
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("logo"))));
 
     }
 
