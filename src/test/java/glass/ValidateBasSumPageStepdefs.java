@@ -12,7 +12,7 @@ public class ValidateBasSumPageStepdefs {
     GeneralPage generalPage = new GeneralPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
     @Given("I am on the Basic Summary page")
     public void iAmOnTheBasicSummaryPage() {
-
+        generalPage.navigate("https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass");
     }
 
     @When("I check the {string}'s value")
