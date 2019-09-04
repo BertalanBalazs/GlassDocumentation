@@ -1,12 +1,5 @@
 Feature: Quick Links
 
-  Scenario: General page quick link test
-    Given I am on the Basic summary page
-      And I am logged in as system admin
-    When I click on the quick link next to the text Basic summary
-    Then the Project settings Details opens in a new window
-
-
   Scenario Outline: Simple item's quick link test
     Given I am on the Basic summary page
       And I am logged in as system admin
@@ -16,6 +9,7 @@ Feature: Quick Links
 
     Examples:
       | header-item         | project-config-heading |
+      | generalPage         | Details                |
       | peopleHeader        | Users and roles        |
       | permissionsHeader   | Project Permissions    |
       | notificationsHeader | Notifications          |

@@ -32,23 +32,11 @@ public class QuickLinkStepDefs {
     }
 
     /*
-    Scenario: General page quick link test
-     */
-
-    @When("I click on the quick link next to the text Basic summary")
-    public void iClickOnTheQuickLinkNextToTheTextBasicSummary() {
-    }
-
-    @Then("the Project settings Details opens in a new window")
-    public void theProjectSettingsDetailsOpensInANewWindow() {
-    }
-
-    /*
     Scenario: Simple item's quick link test
      */
 
-    @When("I click on {WebElement}")
-    public void iClickOn(WebElement headerItem) {
+    @When("I click on {string}")
+    public void iClickOn(String headerItem) {
         generalPage.clickOnHeaderItem(headerItem);
     }
 

@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class GeneralPage extends BasePageObject{
 
     public GeneralPage(WebDriver driver) {
@@ -16,14 +18,22 @@ public class GeneralPage extends BasePageObject{
 
     WebDriverWait wait;
 
+    @FindBy(xpath = "//li[#'glass-general-nav']/a[@innertext='General']") private WebElement generalHeader;
     @FindBy(xpath = "//li[#'glass-people-nav']/a[@innertext='People']") private WebElement peopleHeader;
     @FindBy(xpath = "//li[#'glass-permissions-nav']/a[@innertext='Permissions']") private WebElement permissionsHeader;
     @FindBy(xpath = "//li[#'glass-notifications-nav']/a[@innertext='Notifications']") private WebElement notificationsHeader;
-    @FindBy(xpath = "//div[#'glass-permissions-panel']//a/span") private WebElement quickLink;
 
-    public void clickOnHeaderItem(WebElement headerItem) {
+    @FindBy(xpath = "//a[@class='header-nav-item']") private List<WebElement> headerElements;
+    @FindBy(xpath = "//div[#'glass-permissions-panel']//a/span[0]") private WebElement quickLink;
+
+    public void clickOnHeaderItem(String headerItem) {
         wait.until(ExpectedConditions.visibilityOf(peopleHeader));
-        headerItem.click();
+        for (WebElement headerElement : headerElements) {
+            String headerText = headerElement.getText();
+            if (headerItem == headerText) {
+                headerElement.click();
+            }
+        }
     }
 
     public void clickOnQuickLink() {
