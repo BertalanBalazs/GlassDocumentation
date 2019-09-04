@@ -1,6 +1,9 @@
-Feature: Demo Feature
+Feature: Workflow Creation and Handling
 
-  Scenario: I don't know
-    Given I don't know
-    When I have no idea
-    Then I know nothing
+  Scenario Outline: To check if it is possible to create a new workflow when logged in as an admin.
+    Given I visit the following "link"
+    When I click on the Add workflow menu
+    Then a new prompt shows up that asks for a Name and a Description for a new project
+
+    Examples: link
+      | https://jira2.codecool.codecanvas.hu/secure/admin/workflows/ListWorkflows.jspa |

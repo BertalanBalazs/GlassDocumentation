@@ -24,7 +24,7 @@ public class ValidateBasSumPageStepdefs {
         generalPage.navigate("https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass");
     }
 
-    @When("I check the {string}'s expectedvalue")
+    @When("I check the {string}'s value")
     public void iCheckTheSValue(String key) {
         expectedvalue =generalPage.getValueForKey(key);
 
@@ -35,10 +35,11 @@ public class ValidateBasSumPageStepdefs {
         generalPage.clickToQuickLink();
     }
 
-    @Then("The {string}s expectedvalue at the below details equals with the checked expectedvalue")
+    @Then("The {string}s value at the below details equals with the checked value")
     public void theSValueAtTheBelowDetailsEqualsWithTheCheckedValue(String key) {
         resultValue = generalPage.getvalueFromDetails(key);
         assertEquals(expectedvalue, resultValue);
     }
+
 }
 
