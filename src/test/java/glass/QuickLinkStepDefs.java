@@ -2,6 +2,7 @@ package glass;
 
 import com.codecool.tw6.glass.pages.*;
 import com.codecool.tw6.glass.utility.BrowserFactory;
+import com.codecool.tw6.glass.utility.QuickLinkUtil;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -18,11 +19,6 @@ public class QuickLinkStepDefs {
     PermissionPage permissionPage = new PermissionPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
     ProjectSettingPage projectSettingPage = new ProjectSettingPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
 
-    /*
-    Scenario: General page quick link test
-     */
-
-
     @Given("I am on the Basic summary page")
     public void iAmOnTheBasicSummaryPage() {
         basePageObject.openProjectPage("DEMO");
@@ -32,6 +28,10 @@ public class QuickLinkStepDefs {
     public void iAmLoggedInAsSystemAdmin() {
         loginPage.login();
     }
+
+    /*
+    Scenario: General page quick link test
+     */
 
     @When("I click on the quick link next to the text Basic summary")
     public void iClickOnTheQuickLinkNextToTheTextBasicSummary() {
@@ -49,8 +49,8 @@ public class QuickLinkStepDefs {
     public void iClickOn(String arg0) {
     }
 
-    @And("I click on the quick link next to the {string} text")
-    public void iClickOnTheQuickLinkNextToTheText(String arg0) {
+    @And("I click on the quick link next to the {string}")
+    public void iClickOnTheQuickLinkNextToThe(String arg0) {
     }
 
     @Then("the Project settings {string} opens in a new window")
@@ -69,7 +69,27 @@ public class QuickLinkStepDefs {
     public void iChooseTheFirstOption() {
     }
 
+    @And("I click on the quick link next to the {string} text")
+    public void iClickOnTheQuickLinkNextToTheText(String arg0) {
+    }
+
+    @Then("the Issue Type Project settings {string} opens in a new window")
+    public void theIssueTypeProjectSettingsOpensInANewWindow(String arg0) {
+    }
+
+    /*
+    Scenario: General page's subpages quick link test
+     */
+
+    @When("I click on the {string}")
+    public void iClickOnThe(String arg0) {
+    }
+
     @And("I click on the Arrow link next to the {string} text")
     public void iClickOnTheArrowLinkNextToTheText(String arg0) {
+    }
+
+    @Then("the subpage Project settings {string} opens in a new window")
+    public void theSubpageProjectSettingsOpensInANewWindow(String arg0) {
     }
 }
