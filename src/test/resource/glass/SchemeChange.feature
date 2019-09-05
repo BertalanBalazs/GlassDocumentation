@@ -1,3 +1,4 @@
+@schemes
 Feature: Validate Scheme changes
   Scenario: Validate Issue Type Scheme change
     Given I am on the Select Issue Type Scheme page
