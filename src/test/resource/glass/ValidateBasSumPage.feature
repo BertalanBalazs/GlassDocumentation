@@ -1,3 +1,4 @@
+@generalTest
 Feature: Validate Values On Basic Summary Page
   Check if all the values are valid on the Basic Summary Page
 

@@ -1,14 +1,11 @@
 package com.codecool.tw6.glass.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.SortedMap;
 
 public class LoginPage extends BasePageObject {
     private static String url = "https://jira2.codecool.codecanvas.hu/login.jsp";
@@ -26,6 +23,7 @@ public class LoginPage extends BasePageObject {
     private static WebElement logo;
 
     public LoginPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);
         PageFactory.initElements(driver, this);

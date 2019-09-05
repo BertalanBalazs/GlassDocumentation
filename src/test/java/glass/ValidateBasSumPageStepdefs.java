@@ -23,6 +23,11 @@ public class ValidateBasSumPageStepdefs {
     private String expectedvalue;
     private String resultValue;
 
+    @After("@generalTest")
+    public void tearDown(){
+        driver.quit();
+    }
+
     @Given("I am on the Basic Summary page")
     public void iAmOnTheBasicSummaryPage() {
         loginPage.login();
