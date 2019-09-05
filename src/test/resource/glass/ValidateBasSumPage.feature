@@ -3,13 +3,12 @@ Feature: Validate Values On Basic Summary Page
 
   Scenario Outline: Check Values
     Given I am on the Basic Summary page
-    When I check the "<Key>"'s value
+    When I check the "<ExpectedKey>"'s value
     And click to the quick link
-    Then The "Key"s value at the below details equals with the checked value
+    Then The "<Key>"s value at the below details equals with the checked value
 
     Examples:
-      |Key             |
-      |Key             |
-      |Project type    |
-      |Project category|
-      |URL             |
+      |ExpectedKey     |Key         |
+      |Project Name    |name        |
+      |Key             |key         |
+      |URL             |url         |
