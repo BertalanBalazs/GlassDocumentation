@@ -21,6 +21,11 @@ public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//input")
     private List<WebElement> detailPageInputs;
 
+    @FindBy(xpath = "//a[@class='header-nav-item'][contains(.,'Permissions')]")
+    private WebElement permissionsButton;
+
+
+
     public GeneralPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -41,6 +46,10 @@ public class GeneralPage extends BasePageObject{
     public void clickToQuickLink() {
         quickLink.click();
         waitForElement(detailsTitle, 10);
+    }
+
+    public void clickToPermissions() {
+        permissionsButton.click();
     }
 
     public String getvalueFromDetails(String key) {
