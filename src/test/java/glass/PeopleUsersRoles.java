@@ -71,7 +71,7 @@ public class PeopleUsersRoles {
 
     @Then("I have to see the same data like on the People section of the Glass Documentation")
     public void iHaveToSeeTheSameDataLikeOnThePeopleSectionOfTheGlassDocumentation() {
-//        Assert.assertEquals();
+
     }
 
     @And("I save the Administrators name and quantity")
