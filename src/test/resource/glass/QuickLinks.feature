@@ -18,8 +18,7 @@ Feature: Quick Links
   Scenario Outline: Issue Types quick link test
     Given I am on the Basic summary page
       And I am logged in as system admin
-    When I click on the Issue Types dropdown
-      And I choose the first option
+    When I choose the first option of the Issue Types dropdown
       And I click on the quick link next to the "<inner-header>" text
     Then the Issue Type Project settings "<project-config-heading>" opens in a new window
 

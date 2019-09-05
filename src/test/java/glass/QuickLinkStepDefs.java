@@ -54,12 +54,8 @@ public class QuickLinkStepDefs {
     Scenario: Issue Types quick link test
      */
 
-    @When("I click on the Issue Types dropdown")
-    public void iClickOnTheIssueTypesDropdown() {
-    }
-
-    @And("I choose the first option")
-    public void iChooseTheFirstOption() {
+    @When("I choose the first option of the Issue Types dropdown")
+    public void iClickOnFirstItemOfTheIssueTypesDropdown() {
     }
 
     @And("I click on the quick link next to the {string} text")
