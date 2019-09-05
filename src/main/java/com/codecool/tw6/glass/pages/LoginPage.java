@@ -9,8 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.SortedMap;
+
 public class LoginPage {
-    private static String url = "https://jira2.codecool.codecanvas.hu/";
+    private static String url = "https://jira2.codecool.codecanvas.hu/login.jsp";
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -19,7 +21,7 @@ public class LoginPage {
     private static WebElement username;
     @FindBy(id = "login-form-password")
     private static WebElement password;
-    @FindBy(id = "login")
+    @FindBy(id = "login-form-submit")
     private static WebElement loginBtn;
     @FindBy(id = "logo")
     private static WebElement logo;
