@@ -39,5 +39,4 @@ public class LoginPage {
         wait.until(ExpectedConditions.visibilityOf(loginBtn)).click();
         wait.until(ExpectedConditions.visibilityOf(logo));
     }
-
 }
