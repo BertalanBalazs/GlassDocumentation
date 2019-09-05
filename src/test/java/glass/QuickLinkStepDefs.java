@@ -2,22 +2,31 @@ package glass;
 
 import com.codecool.tw6.glass.pages.*;
 import com.codecool.tw6.glass.utility.BrowserFactory;
+import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 
 public class QuickLinkStepDefs {
 
-    LoginPage loginPage = new LoginPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    BasePageObject basePageObject = new BasePageObject(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    GeneralPage generalPage = new GeneralPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    IssueTypesPage issueTypesPage = new IssueTypesPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    NotificationPage notificationPage = new NotificationPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    PeoplePage peoplePage = new PeoplePage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    PermissionPage permissionPage = new PermissionPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    ProjectSettingPage projectSettingPage = new ProjectSettingPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    private WebDriver driver = BrowserFactory.getWebDriver(System.getenv("BROWSER"));
+
+    LoginPage loginPage = new LoginPage(driver);
+    BasePageObject basePageObject = new BasePageObject(driver);
+    GeneralPage generalPage = new GeneralPage(driver);
+    IssueTypesPage issueTypesPage = new IssueTypesPage(driver);
+    NotificationPage notificationPage = new NotificationPage(driver);
+    PeoplePage peoplePage = new PeoplePage(driver);
+    PermissionPage permissionPage = new PermissionPage(driver);
+    ProjectSettingPage projectSettingPage = new ProjectSettingPage(driver);
+
+    @After("@quickLinks")
+    public void tearDown(){
+        driver.quit();
+    }
 
     @Given("I am logged in as system admin to Jira dashboard")
     public void iAmLoggedInAsSystemAdmin() {
@@ -33,7 +42,7 @@ public class QuickLinkStepDefs {
     Scenario: Simple item's quick link test
      */
 
-    @When("I click on {string}")
+    @When("I click on the {string}")
     public void iClickOn(String headerItem) {
         generalPage.clickOnHeaderItem(headerItem);
     }
@@ -43,7 +52,7 @@ public class QuickLinkStepDefs {
         generalPage.clickOnQuickLink();
     }
 
-    @Then("the Project settings {string} opens in a new window")
+    @Then("the Project settings {string} opens in a different window")
     public void theProjectSettingsOpensInANewWindow(String arg0) {
         Assert.assertEquals("Project settings", projectSettingPage.getHeaderText());
     }
@@ -57,7 +66,7 @@ public class QuickLinkStepDefs {
         generalPage.chooseTheFirstOptionOfIssueTypes();
     }
 
-    @And("I click on the quick link next to the {string} text")
+    @And("I click on the quick link next to the {string}'s text")
     public void iClickOnTheQuickLinkNextToTheText(String innerHeader) {
         issueTypesPage.clickOnQuickLink(innerHeader);
     }
@@ -71,7 +80,7 @@ public class QuickLinkStepDefs {
     Scenario: General page's subpages quick link test
      */
 
-    @When("I click on the {string}")
+    @When("I click on the button called: {string}")
     public void iClickOnThe(String arg0) {
     }
 

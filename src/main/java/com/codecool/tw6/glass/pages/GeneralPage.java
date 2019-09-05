@@ -29,12 +29,13 @@ public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//*[@id='dropdown-issuetypes']//a[@tabindex = -1 ]//span[text() = ' TestIssue']")
     private WebElement testIssueBtn;
 
+    private WebDriverWait wait;
+
     public GeneralPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, 10);
     }
-
-    WebDriverWait wait;
 
     @FindBy(xpath = "//li[#'glass-general-nav']/a[@innertext='General']") private WebElement generalHeader;
     @FindBy(xpath = "//li[#'glass-people-nav']/a[@innertext='People']") private WebElement peopleHeader;
@@ -42,13 +43,13 @@ public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//li[#'glass-notifications-nav']/a[@innertext='Notifications']") private WebElement notificationsHeader;
 
     @FindBy(xpath = "//a[@class='header-nav-item']") private List<WebElement> headerElements;
-    @FindBy(xpath = "//div[#'glass-permissions-panel']//a/span[0]") private WebElement quickLinkSpan;
+    @FindBy(xpath = "//*[@class='aui-icon aui-icon-small aui-iconfont-sidebar-link glass-middle-position']") private WebElement quickLinkSpan;
 
     @FindBy(xpath = "//?/div[@innertext='Issue Types']") private WebElement issueTypesDropdown;
     @FindBy(xpath = "//aui-item-link[1]/a[@role='menuitem']") private WebElement issueTypesDropdownFirstItem;
 
     public void clickOnHeaderItem(String headerItem) {
-        wait.until(ExpectedConditions.visibilityOf(peopleHeader));
+        waitForListOfElements(headerElements, 10);
         for (WebElement headerElement : headerElements) {
             String headerText = headerElement.getText();
             if (headerItem.equals(headerText)) {
@@ -58,7 +59,7 @@ public class GeneralPage extends BasePageObject{
     }
 
     public void clickOnQuickLink() {
-        wait.until(ExpectedConditions.elementToBeClickable(quickLinkSpan));
+        waitFor(quickLinkSpan, 10);
         quickLinkSpan.click();
     }
 

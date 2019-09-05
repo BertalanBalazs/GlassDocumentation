@@ -1,3 +1,4 @@
+@quickLinks
 Feature: Quick Links
 
   Background:
@@ -5,21 +6,21 @@ Feature: Quick Links
       And I am on the Basic sum page
 
   Scenario Outline: Simple item's quick link test
-    When I click on "<header-item>"
+    When I click on the "<header-item>"
       And I click on the quick link next to the inner header
-    Then the Project settings "<project-config-heading>" opens in a new window
+    Then the Project settings "<project-config-heading>" opens in a different window
 
     Examples:
       | header-item         | project-config-heading |
-      | generalPage         | Details                |
-      | peopleHeader        | Users and roles        |
-      | permissionsHeader   | Project Permissions    |
-      | notificationsHeader | Notifications          |
+      | General         | Details                |
+      | People        | Users and roles        |
+      | Permissions   | Project Permissions    |
+      | Notifications | Notifications          |
 
 
   Scenario Outline: Issue Types quick link test
     When I choose the first option of the Issue Types dropdown
-      And I click on the quick link next to the "<inner-header>" text
+      And I click on the quick link next to the "<inner-header>"'s text
     Then the Issue Type Project settings "<project-config-heading>" opens in a new window
 
     Examples:
@@ -29,7 +30,7 @@ Feature: Quick Links
 
 
   Scenario Outline: General page's subpages quick link test
-    When I click on the "<menu-item>"
+    When I click on the button called: "<menu-item>"
       And I click on the Arrow link next to the "<menu-item>" text
     Then the subpage Project settings "<inner-page-header>" opens in a new window
 

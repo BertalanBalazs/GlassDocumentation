@@ -13,13 +13,14 @@ public class ProjectSettingPage extends BasePageObject {
 
     @FindBy(xpath = "//*[@id='project-config-panel-workflows']/table/tbody//a[text()='Test Workflow']")
     private WebElement testWorkflow;
+    private WebDriverWait wait;
+
 
     public ProjectSettingPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, 10);
     }
-
-    WebDriverWait wait;
 
     @FindBy(xpath = "/html//h1[@id='project-config-header-name']") private WebElement header;
 
