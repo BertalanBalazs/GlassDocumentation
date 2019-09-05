@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class BasePageObject {
     private static final String BROWSER = System.getenv("BROWSER");
     private WebDriverWait wait;
@@ -34,5 +36,10 @@ public class BasePageObject {
         wait = new WebDriverWait(driver, time);
         wait.until(ExpectedConditions.visibilityOf(element));
         return element;
+    }
+
+    public void waitForListOfElements(List<WebElement> elements, int time){
+        wait = new WebDriverWait(driver, time);
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 }

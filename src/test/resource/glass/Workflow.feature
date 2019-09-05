@@ -18,17 +18,16 @@ Feature: Workflow Creation & Handling
     When I click on Issue Types menu
     And I select TestIssue
     Then a Workflow box shows the workflow associated with TestIssue
+      And the Workflow Transition is also shown with the following elements: Create, Start Progress, Review Problem, Finish Issue, Close Issue
 
     Examples:
       | link |
       | https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass |
 
-    Scenario Outline: Workflow transitions shown on issue page
-      Given I am on "<link>"
-      When I click on the Issue Types menu
-      And I click on TestIssue
-      Then I see a Workflow Transitions box with the following elements: Create, Start Progress, Review Problem, Finish Issue, Close Issue
+    Scenario Outline: Workflow is also visible in settings site
+      Given I open "<link>"
+      Then Test Workflow appears on the page
 
       Examples:
         | link |
-        | https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass |
+        | https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/DEMO/workflows |

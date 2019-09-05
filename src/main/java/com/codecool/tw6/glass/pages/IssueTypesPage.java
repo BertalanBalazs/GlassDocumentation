@@ -32,6 +32,7 @@ public class IssueTypesPage extends BasePageObject {
     }
 
     public List<String> getWorkflowTransitionList(){
+        waitForListOfElements(workflowTransitionElements, 10);
         List<String> workFlowTransitionList = new ArrayList<>();
         for(WebElement element : workflowTransitionElements){
             workFlowTransitionList.add(element.getText());

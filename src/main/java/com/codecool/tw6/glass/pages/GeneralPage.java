@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class GeneralPage extends BasePageObject{
@@ -29,6 +28,11 @@ public class GeneralPage extends BasePageObject{
 
     @FindBy(xpath = "//td[text() = 'Issue Types']/..//span")
     private List<WebElement> issueTypesIcons;
+
+
+    @FindBy(xpath = "//a[@class='header-nav-item'][contains(.,'Permissions')]")
+    private WebElement permissionsButton;
+
 
 
     @FindBy(id = "glass-workflow-nav")
@@ -79,6 +83,10 @@ public class GeneralPage extends BasePageObject{
     public void clickToQuickLink() {
         quickLink.click();
         waitForElement(detailsTitle, 10);
+    }
+
+    public void clickToPermissions() {
+        permissionsButton.click();
     }
 
     public String getvalueFromDetails(String key) {
