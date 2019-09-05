@@ -21,6 +21,9 @@ public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//input")
     private List<WebElement> detailPageInputs;
 
+    @FindBy(xpath = "//a[@id='aui-uid-2']")
+    private WebElement versions;
+
     public GeneralPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -51,5 +54,13 @@ public class GeneralPage extends BasePageObject{
             }
         }
         return result;
+    }
+
+    public void clickOnVersions() {
+        versions.click();
+    }
+
+    public boolean checkNewlyCreatedTestVersion(String versionName) {
+        return driver.findElement(By.xpath("//*[text()='" + versionName + "']")).isDisplayed();
     }
 }

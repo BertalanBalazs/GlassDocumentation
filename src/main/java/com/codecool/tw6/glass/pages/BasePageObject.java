@@ -13,6 +13,7 @@ public class BasePageObject {
 
     public BasePageObject(WebDriver driver) {
         this.driver = driver;
+        this.driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 10);
         PageFactory.initElements(this.driver, this);
     }

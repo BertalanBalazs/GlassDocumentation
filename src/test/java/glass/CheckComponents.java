@@ -1,14 +1,19 @@
 package glass;
 
 import com.codecool.tw6.glass.pages.GeneralPage;
+import com.codecool.tw6.glass.pages.LoginPage;
 import com.codecool.tw6.glass.utility.BrowserFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.WebDriver;
 
 public class CheckComponents {
-    GeneralPage generalPage = new GeneralPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    private WebDriver driver = BrowserFactory.getWebDriver(System.getenv("BROWSER"));
+    LoginPage loginPage = new LoginPage(driver);
+    GeneralPage generalPage = new GeneralPage(driver);
+
     @When("I click on Components text option.")
     public void iClickOnComponentsTextOption() {
     }
