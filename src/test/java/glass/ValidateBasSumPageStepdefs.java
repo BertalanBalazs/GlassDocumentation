@@ -5,6 +5,7 @@ import com.codecool.tw6.glass.pages.BasePageObject;
 import com.codecool.tw6.glass.pages.GeneralPage;
 import com.codecool.tw6.glass.pages.LoginPage;
 import com.codecool.tw6.glass.utility.BrowserFactory;
+import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -44,7 +45,6 @@ public class ValidateBasSumPageStepdefs {
         resultValue = generalPage.getvalueFromDetails(key);
         assertEquals(expectedvalue, resultValue);
     }
-
 
 }
 
