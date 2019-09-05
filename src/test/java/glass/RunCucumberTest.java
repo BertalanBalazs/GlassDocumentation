@@ -1,6 +1,5 @@
 package glass;
 
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.Scenario;
 import cucumber.api.TestCase;

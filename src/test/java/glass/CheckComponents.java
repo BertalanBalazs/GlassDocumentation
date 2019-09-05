@@ -1,4 +1,4 @@
-package glass;
+/*package glass;
 
 import com.codecool.tw6.glass.pages.GeneralPage;
 import com.codecool.tw6.glass.pages.LoginPage;
@@ -33,4 +33,4 @@ public class CheckComponents {
     @Then("I see the TestComponent version in the list.")
     public void iSeeTheTestComponentVersionInTheList() {
     }
-}
+}*/

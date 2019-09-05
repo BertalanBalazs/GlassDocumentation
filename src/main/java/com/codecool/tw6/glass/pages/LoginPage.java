@@ -9,27 +9,34 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage extends BasePageObject {
+import java.util.SortedMap;
+
+public class LoginPage {
+    private static String url = "https://jira2.codecool.codecanvas.hu/login.jsp";
+    private WebDriver driver;
+    private WebDriverWait wait;
+
+
     @FindBy(id = "login-form-username")
     private static WebElement username;
     @FindBy(id = "login-form-password")
     private static WebElement password;
-    @FindBy(id = "login")
+    @FindBy(id = "login-form-submit")
     private static WebElement loginBtn;
     @FindBy(id = "logo")
     private static WebElement logo;
-    @FindBy(id = "header-details-user-fullname")
-    private WebElement header;
 
     public LoginPage(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 10);
+        PageFactory.initElements(driver, this);
     }
 
     public void login() {
-        navigateToLoginPage();
+        driver.get(url);
         wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(System.getenv("JIRAUSER"));
         wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(System.getenv("PASSWORD"));
         wait.until(ExpectedConditions.visibilityOf(loginBtn)).click();
-        wait.until(ExpectedConditions.visibilityOf(header));
+        wait.until(ExpectedConditions.visibilityOf(logo));
     }
 }
