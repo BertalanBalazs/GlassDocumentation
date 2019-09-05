@@ -1,33 +1,43 @@
 package glass;
 
+import com.codecool.tw6.glass.pages.AdministrationGroupPage;
+import com.codecool.tw6.glass.pages.LoginPage;
 import com.codecool.tw6.glass.pages.PeoplePage;
 import com.codecool.tw6.glass.pages.ProjectSettingPage;
+import com.codecool.tw6.glass.utility.BrowserFactory;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PeopleUsersRoles {
-    PeoplePage peoplePage;
-    ProjectSettingPage projectSettingPage;
-    WebDriver driver;
+    private PeoplePage peoplePage;
+    private LoginPage loginPage;
+    private ProjectSettingPage projectSettingPage;
+    private AdministrationGroupPage administrationGroupPage;
+    private WebDriver driver = BrowserFactory.getWebDriver(System.getenv("BROWSER"));
 
     @Before
     public void setUp(){
+        loginPage = new LoginPage(driver);
         peoplePage = new PeoplePage(driver);
         projectSettingPage = new ProjectSettingPage(driver);
+        administrationGroupPage = new AdministrationGroupPage(driver);
     }
 
     @Given("You are on the Temp - Project Configuration Documentation site")
     public void youAreOnTheTempProjectConfigurationDocumentationSite() {
-        peoplePage.logIn();
+        loginPage.login();
         peoplePage.navigateToProjectSite();
     }
 
     @When("I click on the people section")
     public void iClickOnThe() {
+
         peoplePage.clickOnPeopleSection();
     }
 
@@ -58,22 +68,19 @@ public class PeopleUsersRoles {
     public void iHaveToSeeTheSameDataLikeOnTheUsersAndRolesSite() {
     }
 
-
-    @And("I save the Administrators and the Developers name and quantity")
-    public void iSaveTheAdministratorsAndTheDevelopersNameAndQuantity() {
-    }
-
-
     @Then("I have to see the same data like on the People section of the Glass Documentation")
     public void iHaveToSeeTheSameDataLikeOnThePeopleSectionOfTheGlassDocumentation() {
     }
 
     @And("I save the Administrators name and quantity")
-    public void iSaveTheAdministratorsNameAndQuantity() {
+    public int iSaveTheAdministratorsNameAndQuantity() {
+        return peoplePage.saveAdministratorData();
     }
 
     @Then("I have to assert the num of the jira-administrators user quantity")
     public void iHaveToAssertTheNumOfTheJiraAdministratorsUserQuantity() {
+        int jiraAdministratorQuantity = administrationGroupPage.getNunOfJiraAdministratorQuantity();
+        Assert.assertEquals(jiraAdministratorQuantity, iSaveTheAdministratorsNameAndQuantity());
     }
 
     @And("navigate to Administration group site")

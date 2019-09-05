@@ -18,14 +18,14 @@ Feature: Show Users's and People's roles
     When I click on the people section
     And I click on the Users and Roles link
     And I click on the Simple User delete button
-    And I save the Administrators and the Developers name and quantity
+    And I save the Administrators name and quantity
     And I click on the Glass documentation
     And I click on the people section
     Then I have to see the same data like on the Users and Roles site
 
   Scenario:Compare users and roles
     When I click on the people section
-    And I save the Administrators and the Developers name and quantity
+    And I save the Administrators name and quantity
     And I click on the Users and Roles link
     Then I have to see the same data like on the People section of the Glass Documentation
 

@@ -8,6 +8,10 @@ import org.w3c.dom.html.HTMLInputElement;
 
 
 public class PeoplePage extends BasePageObject {
+
+    @FindBy(xpath = "//td[@class='roles-group-name js-role-group-name']/aui-badge[1]")
+    WebElement jiraAdministratorQuantity;
+
     @FindBy(xpath = "//a[text()='People']")
     WebElement peopleSite;
 
@@ -21,6 +25,10 @@ public class PeoplePage extends BasePageObject {
     public PeoplePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
+    }
+
+    public int saveAdministratorData() {
+        return Integer.parseInt(jiraAdministratorQuantity.getText());
     }
 
     public void navigateToProjectSite(){
@@ -37,6 +45,7 @@ public class PeoplePage extends BasePageObject {
     }
 
     public void clickOnPeopleSection() {
+        w;
         peopleSite.click();
     }
 
