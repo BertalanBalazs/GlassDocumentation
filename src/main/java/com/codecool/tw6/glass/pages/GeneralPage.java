@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class GeneralPage extends BasePageObject{
@@ -33,27 +34,19 @@ public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//a[@class='header-nav-item'][contains(.,'Permissions')]")
     private WebElement permissionsButton;
 
-
-
     @FindBy(id = "glass-workflow-nav")
     private WebElement issueTypeBtn;
 
     @FindBy(xpath = "//*[@id='dropdown-issuetypes']//a[@tabindex = -1 ]//span[text() = ' TestIssue']")
     private WebElement testIssueBtn;
 
+    @FindBy(xpath = "//*[@id='dropdown-issuetypes']//span")
+    private List<WebElement> spansInDropdown;
+
     public GeneralPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
-
-
-//    public List<WebElement> getIssueTypeIcons() {
-//        return driver.findElements(By.xpath("//h4[@class='card-title' and text()=\"%s\"]/../..//button"));
-//    }
-
-//    public boolean isIssueTypeIconPresent() {
-//
-//    }
 
     public List<String> getIssueTypeIconTitles() {
         List<String> issueTypeIconTitles = new ArrayList<>();
@@ -63,8 +56,23 @@ public class GeneralPage extends BasePageObject{
         return issueTypeIconTitles;
     }
 
+    public List<String> getIssueTypesFromDropdown() {
+        List<String> issueTypes = new ArrayList<>();
+        for (WebElement span : spansInDropdown) {
+            List<WebElement> childrenOfSpan = span.findElements(By.xpath(".//*"));
+            if (span.findElements(By.xpath(".//*")).size() == 0) {
+                issueTypes.add(span.getText());
+            }
+        }
+        return issueTypes;
+    }
+
     public boolean areIconsCorrect(List<String> actualIssueTypeIconTitles) {
         return new HashSet<>(getIssueTypeIconTitles()).equals(new HashSet<>(actualIssueTypeIconTitles));
+    }
+
+    public boolean areDropdownIssueTypesCorrect(List<String> actualIssueTypeIconTitles)  {
+        return new HashSet<>(getIssueTypesFromDropdown()).equals(new HashSet<>(actualIssueTypeIconTitles));
     }
 
 
