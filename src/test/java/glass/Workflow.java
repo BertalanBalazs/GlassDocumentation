@@ -7,7 +7,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.cucumber.datatable.dependency.com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
@@ -72,21 +71,7 @@ public class Workflow {
         Assert.assertTrue(issueTypesPage.isWorkflowBoxPresent());
     }
 
-    @Given("I am on <link>")
-    public void iAmOnLink() {
-    }
-
-    @When("I click on the Issue Types menu")
-    public void iClikOnTheIssueTypes() {
-        generalPage.clickOnIssueTypeBtn();
-    }
-
-    @And("I click on TestIssue")
-    public void iClickOnTestIssue() {
-        generalPage.selectMenuItem("TestIssue");
-    }
-
-    @Then("I see a Workflow Transitions box with the following elements: Create, Start Progress, Review Problem, Finish Issue, Close Issue")
+    @And("the Workflow Transition is also shown with the following elements: Create, Start Progress, Review Problem, Finish Issue, Close Issue")
     public void workFlowTransitionsPresentTest() {
         List<String> expectedTransitions = new ArrayList<>(Arrays.asList("Create", "Start Progress", "Review Problem", "Finish Issue", "Close Issue"));
         Assert.assertEquals(expectedTransitions, issueTypesPage.getWorkflowTransitionList());
@@ -101,4 +86,5 @@ public class Workflow {
     public void testWorkflowAppearsOnThePage() {
         Assert.assertTrue(settingsPage.isTestWorkflowPresent());
     }
+
 }
