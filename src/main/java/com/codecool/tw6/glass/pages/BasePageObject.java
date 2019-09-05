@@ -6,8 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class BasePageObject {
     private static final String BROWSER = System.getenv("BROWSER");
+    private WebDriverWait wait;
 
     protected WebDriver driver;
 
@@ -24,13 +27,19 @@ public class BasePageObject {
         driver.get(location);
     }
 
-    // project can be either: DEMO or ST
-    public void openProjectPage(String project){
-        driver.get("https://jira2.codecool.codecanvas.hu/projects/" + project + "?selectedItem=com.codecanvas.glass:glass");
+    public void waitForElement(WebElement element, int time){
+        wait = new WebDriverWait(driver, time);
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForElement(WebElement element, int waitTime){
-        WebDriverWait wait = new WebDriverWait(driver, waitTime);
+    public WebElement waitFor(WebElement element, int time){
+        wait = new WebDriverWait(driver, time);
         wait.until(ExpectedConditions.visibilityOf(element));
+        return element;
+    }
+
+    public void waitForListOfElements(List<WebElement> elements, int time){
+        wait = new WebDriverWait(driver, time);
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 }

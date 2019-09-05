@@ -8,6 +8,8 @@ public class BrowserFactory {
 
     public static WebDriver getWebDriver(String browser) {
 
+        System.setProperty("webdriver.gecko.driver", "C:\\Codecool\\geckodriver.exe"); //TODO: remove this
+
         switch (browser) {
             case "CHROME":
                 System.setProperty("webdriver.chrome.driver", System.getenv("DRIVER_LOCATION"));

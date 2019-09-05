@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.SortedMap;
+
 public class LoginPage {
     private static String url = "https://jira2.codecool.codecanvas.hu/login.jsp";
     private WebDriver driver;
