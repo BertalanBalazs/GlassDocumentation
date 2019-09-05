@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-import java.util.List;
-
 public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//div[@id=\"glass-general-panel\"]//descendant::table[@class=\"aui\"]")
     private List<WebElement> summaryTable ;
@@ -44,7 +42,7 @@ public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//li[#'glass-notifications-nav']/a[@innertext='Notifications']") private WebElement notificationsHeader;
 
     @FindBy(xpath = "//a[@class='header-nav-item']") private List<WebElement> headerElements;
-    @FindBy(xpath = "//div[#'glass-permissions-panel']//a/span[0]") private WebElement quickLink;
+    @FindBy(xpath = "//div[#'glass-permissions-panel']//a/span[0]") private WebElement quickLinkSpan;
 
     @FindBy(xpath = "//?/div[@innertext='Issue Types']") private WebElement issueTypesDropdown;
     @FindBy(xpath = "//aui-item-link[1]/a[@role='menuitem']") private WebElement issueTypesDropdownFirstItem;
@@ -60,8 +58,8 @@ public class GeneralPage extends BasePageObject{
     }
 
     public void clickOnQuickLink() {
-        wait.until(ExpectedConditions.elementToBeClickable(quickLink));
-        quickLink.click();
+        wait.until(ExpectedConditions.elementToBeClickable(quickLinkSpan));
+        quickLinkSpan.click();
     }
 
     public void chooseTheFirstOptionOfIssueTypes() {

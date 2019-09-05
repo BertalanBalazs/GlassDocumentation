@@ -19,14 +19,14 @@ public class QuickLinkStepDefs {
     PermissionPage permissionPage = new PermissionPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
     ProjectSettingPage projectSettingPage = new ProjectSettingPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
 
-    @Given("I am logged in as system admin")
+    @Given("I am logged in as system admin to Jira dashboard")
     public void iAmLoggedInAsSystemAdmin() {
         loginPage.login();
     }
 
-    @And("I am on the Basic summary page")
-    public void iAmOnTheBasicSummaryPage() {
-        basePageObject.openProjectPage("DEMO");
+    @And("I am on the Basic sum page")
+    public void iAmOnTheBasicSumPage() {
+        basePageObject.navigate("https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass");
     }
 
     /*

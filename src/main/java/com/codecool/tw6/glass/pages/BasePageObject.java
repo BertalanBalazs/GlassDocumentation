@@ -42,4 +42,7 @@ public class BasePageObject {
         wait = new WebDriverWait(driver, time);
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
+
+    public void openProjectPage(String demo) {
+    }
 }
