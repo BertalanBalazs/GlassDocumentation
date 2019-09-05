@@ -52,7 +52,6 @@ public class QuickLinkStepDefs {
     Scenario: Issue Types quick link test
      */
 
-    /*
     @When("I choose the first option of the Issue Types dropdown")
     public void iClickOnFirstItemOfTheIssueTypesDropdown() {
         generalPage.chooseTheFirstOptionOfIssueTypes();
@@ -68,13 +67,10 @@ public class QuickLinkStepDefs {
         Assert.assertEquals("Project settings", projectSettingPage.getHeaderText());
     }
 
-     */
-
     /*
     Scenario: General page's subpages quick link test
      */
 
-    /*
     @When("I click on the {string}")
     public void iClickOnThe(String arg0) {
     }
@@ -86,7 +82,5 @@ public class QuickLinkStepDefs {
     @Then("the subpage Project settings {string} opens in a new window")
     public void theSubpageProjectSettingsOpensInANewWindow(String arg0) {
     }
-
-     */
 
 }
