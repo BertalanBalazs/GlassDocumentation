@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GeneralPage extends BasePageObject{
 
@@ -31,6 +30,12 @@ public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//td[text() = 'Issue Types']/..//span")
     private List<WebElement> issueTypesIcons;
 
+
+    @FindBy(id = "glass-workflow-nav")
+    private WebElement issueTypeBtn;
+
+    @FindBy(xpath = "//*[@id='dropdown-issuetypes']//a[@tabindex = -1 ]//span[text() = ' TestIssue']")
+    private WebElement testIssueBtn;
 
     public GeneralPage(WebDriver driver) {
         super(driver);
@@ -84,5 +89,18 @@ public class GeneralPage extends BasePageObject{
             }
         }
         return result;
+    }
+
+    public void clickOnIssueTypeBtn(){
+        waitFor(issueTypeBtn, 10);
+        issueTypeBtn.click();
+    }
+
+    public void selectMenuItem(String buttonText){
+        switch (buttonText){
+            case "TestIssue":
+                waitFor(testIssueBtn, 10).click();
+                break;
+        }
     }
 }

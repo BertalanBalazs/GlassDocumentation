@@ -1,4 +1,4 @@
-package glass;
+/*package glass;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -11,7 +11,7 @@ public class QuickLinks {
     Scenario: General page quick link test
      */
 
-    @Given("I am logged in as system admin")
+    /*@Given("I am logged in as system admin")
     public void iAmLoggedInAsSystemAdmin() {
     }
 
@@ -38,4 +38,4 @@ public class QuickLinks {
     @Then("the Project settings {string} opens in a new window")
     public void theProjectSettingsOpensInANewWindow(String arg0) {
     }
-}
+}*/
