@@ -1,4 +1,4 @@
-/*package glass;
+package glass;
 
 
 import com.codecool.tw6.glass.pages.GeneralPage;
@@ -42,5 +42,5 @@ public class ValidateBasSumPageStepdefs {
         assertEquals(expectedvalue, resultValue);
     }
 
-}*/
+}
 

@@ -1,4 +1,4 @@
-/*package glass;
+package glass;
 
 
 import cucumber.api.java.en.And;
@@ -41,4 +41,4 @@ public class ValidateSchemeChange {
     @Then("the Issue Type Scheme displays Demo Issue Type Scheme")
     public void theIssueTypeSchemeDisplaysDemoIssueTypeScheme() {
     }
-}*/
+}

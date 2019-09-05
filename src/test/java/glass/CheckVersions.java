@@ -1,4 +1,4 @@
-/*package glass;
+package glass;
 
 import com.codecool.tw6.glass.pages.GeneralPage;
 import com.codecool.tw6.glass.utility.BrowserFactory;
@@ -40,4 +40,4 @@ public class CheckVersions {
     @Then("I see the TestVersion version in the list.")
     public void iSeeTheTestVersionVersionInTheList() {
     }
-}*/
+}
