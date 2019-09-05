@@ -37,7 +37,6 @@ public class PeopleUsersRoles {
 
     @When("I click on the people section")
     public void iClickOnThe() {
-
         peoplePage.clickOnPeopleSection();
     }
 

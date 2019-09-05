@@ -11,7 +11,7 @@ import java.util.List;
 
 public class BasePageObject {
     private static final String BROWSER = System.getenv("BROWSER");
-    private WebDriverWait wait;
+    protected WebDriverWait wait;
 
     protected WebDriver driver;
 

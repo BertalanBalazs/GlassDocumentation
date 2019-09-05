@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebElement;
-import org.w3c.dom.html.HTMLInputElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class PeoplePage extends BasePageObject {
@@ -12,7 +12,7 @@ public class PeoplePage extends BasePageObject {
     @FindBy(xpath = "//td[@class='roles-group-name js-role-group-name']/aui-badge[1]")
     WebElement jiraAdministratorQuantity;
 
-    @FindBy(xpath = "//a[text()='People']")
+    @FindBy(id = "glass-people-nav")
     WebElement peopleSite;
 
     @FindBy(xpath = "//*[@href='/plugins/servlet/project-config/DEMO/roles']/span")
@@ -45,7 +45,13 @@ public class PeoplePage extends BasePageObject {
     }
 
     public void clickOnPeopleSection() {
-        w;
+        wait.until(ExpectedConditions.visibilityOf(peopleSite));
+        wait.until(ExpectedConditions.elementToBeClickable(peopleSite));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         peopleSite.click();
     }
 
