@@ -1,4 +1,5 @@
-package glass;
+/*package glass;
+
 
 import com.codecool.tw6.glass.pages.BasePageObject;
 import com.codecool.tw6.glass.pages.GeneralPage;
@@ -58,4 +59,4 @@ public class ValidateSchemeChange {
     public void theIssueTypeSchemeDisplaysDemoIssueTypeScheme() {
         Assert.assertEquals("Demo Issue Type Scheme", generalPage.getCurrentIssueTypeSchemeText());
     }
-}
+}*/

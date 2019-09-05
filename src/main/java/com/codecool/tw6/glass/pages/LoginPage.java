@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.SortedMap;
+
 public class LoginPage {
     private static String url = "https://jira2.codecool.codecanvas.hu/login.jsp";
     private WebDriver driver;
@@ -32,7 +34,7 @@ public class LoginPage {
 
     public void login() {
         driver.get(url);
-        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(System.getenv("USERNAME"));
+        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(System.getenv("JIRAUSER"));
         wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(System.getenv("PASSWORD"));
         wait.until(ExpectedConditions.visibilityOf(loginBtn)).click();
         wait.until(ExpectedConditions.visibilityOf(logo));
