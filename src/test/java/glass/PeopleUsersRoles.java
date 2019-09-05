@@ -1,13 +1,25 @@
 package glass;
 
+import com.codecool.tw6.glass.pages.PeoplePage;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.WebDriver;
 
 public class PeopleUsersRoles {
+    PeoplePage peoplePage;
+    WebDriver driver;
+
+    @Before
+    public void setUp(){
+        peoplePage = new PeoplePage(driver);
+    }
+
     @Given("You are on the Temp - Project Configuration Documentation site")
     public void youAreOnTheTempProjectConfigurationDocumentationSite() {
+        peoplePage.navigateToPeopleSite();
     }
 
     @When("I click on the {string}")
