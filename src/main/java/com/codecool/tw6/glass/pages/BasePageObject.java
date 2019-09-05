@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class BasePageObject {
-    private static final String BROWSER = System.getenv("BROWSER");
+    private static final String BROWSER = System.getProperty("webdriver");
     protected WebDriverWait wait;
 
     protected WebDriver driver;
@@ -25,6 +25,7 @@ public class BasePageObject {
     public BasePageObject(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver=driver;
+        wait = new WebDriverWait(driver, 10);
     }
 
     public static String getBrowser(){
@@ -49,10 +50,5 @@ public class BasePageObject {
     public void waitForListOfElements(List<WebElement> elements, int time){
         wait = new WebDriverWait(driver, time);
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
-    }
-
-    public void logIn() {
-        usernameInput.sendKeys("username");
-        passwordInput.sendKeys("password");
     }
 }

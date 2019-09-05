@@ -1,12 +1,10 @@
 package com.codecool.tw6.glass.pages;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.w3c.dom.html.HTMLInputElement;
 
 public class ProjectSettingPage extends BasePageObject {
 
@@ -78,4 +76,8 @@ public class ProjectSettingPage extends BasePageObject {
     public void clickOnAddUserToRoleButton() {
         addUserToRoleButton.click();
     }
+
+/*    public List<String> getDevelopersNameAndQuantity() {
+        return;
+    }*/
 }

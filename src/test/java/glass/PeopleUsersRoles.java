@@ -61,14 +61,17 @@ public class PeopleUsersRoles {
 
     @And("I save the Developers name and quantity")
     public void iSaveTheDevelopersNameAndQuantity() {
+//        projectSettingPage.getDevelopersNameAndQuantity();
     }
 
     @Then("I have to see the same data like on the Users and Roles site")
     public void iHaveToSeeTheSameDataLikeOnTheUsersAndRolesSite() {
+//        Assert.assertEquals();
     }
 
     @Then("I have to see the same data like on the People section of the Glass Documentation")
     public void iHaveToSeeTheSameDataLikeOnThePeopleSectionOfTheGlassDocumentation() {
+//        Assert.assertEquals();
     }
 
     @And("I save the Administrators name and quantity")
