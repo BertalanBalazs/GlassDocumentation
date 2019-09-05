@@ -9,12 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage {
-    private static String url = "https://jira2.codecool.codecanvas.hu/";
-    private WebDriver driver;
-    private WebDriverWait wait;
-
-
+public class LoginPage extends BasePageObject {
     @FindBy(id = "login-form-username")
     private static WebElement username;
     @FindBy(id = "login-form-password")
@@ -23,19 +18,18 @@ public class LoginPage {
     private static WebElement loginBtn;
     @FindBy(id = "logo")
     private static WebElement logo;
+    @FindBy(id = "header-details-user-fullname")
+    private WebElement header;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 10);
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void login() {
-        driver.get(url);
+        navigateToLoginPage();
         wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(System.getenv("JIRAUSER"));
         wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(System.getenv("PASSWORD"));
         wait.until(ExpectedConditions.visibilityOf(loginBtn)).click();
-        wait.until(ExpectedConditions.visibilityOf(logo));
+        wait.until(ExpectedConditions.visibilityOf(header));
     }
-
 }

@@ -8,24 +8,29 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePageObject {
     private static final String BROWSER = System.getenv("BROWSER");
-
-    protected WebDriver driver;
+    protected final WebDriver driver;
+    protected WebDriverWait wait;
 
     public BasePageObject(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver=driver;
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 10);
+        PageFactory.initElements(this.driver, this);
     }
 
-    public static String getBrowser(){
+    public static String getBrowser() {
         return BROWSER;
     }
 
-    public void navigate(String location){
+    public void navigateToLoginPage() {
+        driver.navigate().to("https://jira2.codecool.codecanvas.hu/");
+    }
+
+    public void navigate(String location) {
         driver.get(location);
     }
 
-    public void waitForElement(WebElement element, int time){
-        WebDriverWait wait = new WebDriverWait(driver, time);
+    public void waitForElement(WebElement element, int time) {
+        this.wait = new WebDriverWait(driver, time);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 }
