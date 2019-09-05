@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class GeneralPage extends BasePageObject{
+public class GeneralPage extends BasePageObject {
     @FindBy(xpath = "//div[@id=\"glass-general-panel\"]//descendant::table[@class=\"aui\"]")
-    private List<WebElement> summaryTable ;
+    private List<WebElement> summaryTable;
 
     @FindBy(xpath = "//h2[contains(., 'Basic Summary')]/a")
     private WebElement quickLink;
@@ -39,7 +39,7 @@ public class GeneralPage extends BasePageObject{
         String result = "I am empty :(";
         for (WebElement row : summaryTable) {
             String key = row.findElement(By.xpath("./td[0]")).getText();
-            if(key.equals(expectedKey)){
+            if (key.equals(expectedKey)) {
                 result = row.findElement(By.xpath("./td[1]")).getText();
             }
 
@@ -62,13 +62,13 @@ public class GeneralPage extends BasePageObject{
         return result;
     }
 
-    public void clickOnIssueTypeBtn(){
+    public void clickOnIssueTypeBtn() {
         waitFor(issueTypeBtn, 10);
         issueTypeBtn.click();
     }
 
-    public void selectMenuItem(String buttonText){
-        switch (buttonText){
+    public void selectMenuItem(String buttonText) {
+        switch (buttonText) {
             case "TestIssue":
                 waitFor(testIssueBtn, 10).click();
                 break;
@@ -81,5 +81,9 @@ public class GeneralPage extends BasePageObject{
 
     public boolean checkNewlyCreatedTestVersion(String versionName) {
         return driver.findElement(By.xpath("//*[text()='" + versionName + "']")).isDisplayed();
+    }
+
+    public boolean checkNewlyCreatedComponent(String componentName) {
+        return driver.findElement(By.xpath("//*[text()='" + componentName + "']")).isDisplayed();
     }
 }

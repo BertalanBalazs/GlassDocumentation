@@ -54,9 +54,9 @@ public class CheckVersions {
         assertTrue(generalPage.checkNewlyCreatedTestVersion("TestVersion"));
     }
 
-    @After("@CheckVersions")
+    /*@After("@CheckVersions")
     public void deleteTestVersion() throws InterruptedException {
         generalPage.navigate("https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&status=no-filter");
         releasesPage.deleteVersion("TestVersion");
-    }
+    }*/
 }

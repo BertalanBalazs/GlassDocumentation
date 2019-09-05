@@ -1,13 +1,15 @@
 package com.codecool.tw6.glass.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ReleasesPage extends BasePageObject {
+    private WebDriverWait wait;
+
     @FindBy(xpath = "//div[@class='releases-add__name']/input[@class='text' and 1]")
     private WebElement versionNameInputField;
 
@@ -17,7 +19,7 @@ public class ReleasesPage extends BasePageObject {
     @FindBy(xpath = "//*[@class='aui-button aui-button-primary']")
     private WebElement newVersionAddButton;
 
-    @FindBy(xpath = "https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&status=no-filter")
+    @FindBy(xpath = "//span[@class='aui-icon aui-icon-small aui-iconfont-more']")
     private WebElement versionDropdownMenu;
 
     @FindBy(xpath = "//a[@class='project-config-operations-delete']")
@@ -26,8 +28,10 @@ public class ReleasesPage extends BasePageObject {
     @FindBy(xpath = "//input[@id='submit']")
     private WebElement confirmDeleteButton;
 
+
     public ReleasesPage(WebDriver webDriver) {
         super(webDriver);
+        wait = new WebDriverWait(driver, 10);
         PageFactory.initElements(driver, this);
     }
 
@@ -43,15 +47,11 @@ public class ReleasesPage extends BasePageObject {
         searchVersionInputField.sendKeys(versionName);
     }
 
-    public void deleteVersion(String versionName) throws InterruptedException {
+    public void deleteVersion(String versionName) {
         wait.until(ExpectedConditions.visibilityOf(searchVersionInputField));
         findVersion(versionName);
         versionDropdownMenu.click();
-        Thread.sleep(1500);
-        driver.findElement(By.xpath("//a[@class='project-config-operations-delete']")).click();
         deleteVersionButton.click();
-        Thread.sleep(1500);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='info-message']")));
         confirmDeleteButton.click();
     }
 }
