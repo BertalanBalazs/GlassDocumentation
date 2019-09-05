@@ -32,3 +32,11 @@ Feature: Workflow Creation & Handling
       Examples:
         | link |
         | https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.codecanvas.glass:glass |
+
+    Scenario Outline: Workflow is also visible in settings site
+      Given I open "<link>"
+      Then Test Workflow appears on the page
+
+      Examples:
+        | link |
+        | https://jira2.codecool.codecanvas.hu/plugins/servlet/project-config/DEMO/workflows |

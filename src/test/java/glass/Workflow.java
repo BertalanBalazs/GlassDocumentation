@@ -24,6 +24,7 @@ public class Workflow {
     private AdministrationPage administrationPage = new AdministrationPage(driver);
     private AuthenticatePage authenticatePage = new AuthenticatePage(driver);
     private IssueTypesPage issueTypesPage = new IssueTypesPage(driver);
+    private ProjectSettingPage settingsPage = new ProjectSettingPage(driver);
 
     @After("@workflow")
     public void tearDown(){
@@ -89,5 +90,15 @@ public class Workflow {
     public void workFlowTransitionsPresentTest() {
         List<String> expectedTransitions = new ArrayList<>(Arrays.asList("Create", "Start Progress", "Review Problem", "Finish Issue", "Close Issue"));
         Assert.assertEquals(expectedTransitions, issueTypesPage.getWorkflowTransitionList());
+    }
+
+    @Given("I open {string}")
+    public void iOpen(String url) {
+        basePage.navigate(url);
+    }
+
+    @Then("Test Workflow appears on the page")
+    public void testWorkflowAppearsOnThePage() {
+        Assert.assertTrue(settingsPage.isTestWorkflowPresent());
     }
 }
