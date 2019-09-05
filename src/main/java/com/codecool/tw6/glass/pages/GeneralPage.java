@@ -26,11 +26,14 @@ public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//a[@class='header-nav-item']") private List<WebElement> headerElements;
     @FindBy(xpath = "//div[#'glass-permissions-panel']//a/span[0]") private WebElement quickLink;
 
+    @FindBy(xpath = "//?/div[@innertext='Issue Types']") private WebElement issueTypesDropdown;
+    @FindBy(xpath = "//aui-item-link[1]/a[@role='menuitem']") private WebElement issueTypesDropdownFirstItem;
+
     public void clickOnHeaderItem(String headerItem) {
         wait.until(ExpectedConditions.visibilityOf(peopleHeader));
         for (WebElement headerElement : headerElements) {
             String headerText = headerElement.getText();
-            if (headerItem == headerText) {
+            if (headerItem.equals(headerText)) {
                 headerElement.click();
             }
         }
@@ -39,5 +42,12 @@ public class GeneralPage extends BasePageObject{
     public void clickOnQuickLink() {
         wait.until(ExpectedConditions.elementToBeClickable(quickLink));
         quickLink.click();
+    }
+
+    public void chooseTheFirstOptionOfIssueTypes() {
+        wait.until(ExpectedConditions.elementToBeClickable(issueTypesDropdown));
+        issueTypesDropdown.click();
+        wait.until(ExpectedConditions.elementToBeClickable(issueTypesDropdownFirstItem));
+        issueTypesDropdownFirstItem.click();
     }
 }

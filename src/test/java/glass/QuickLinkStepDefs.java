@@ -56,14 +56,17 @@ public class QuickLinkStepDefs {
 
     @When("I choose the first option of the Issue Types dropdown")
     public void iClickOnFirstItemOfTheIssueTypesDropdown() {
+        generalPage.chooseTheFirstOptionOfIssueTypes();
     }
 
     @And("I click on the quick link next to the {string} text")
-    public void iClickOnTheQuickLinkNextToTheText(String arg0) {
+    public void iClickOnTheQuickLinkNextToTheText(String innerHeader) {
+        issueTypesPage.clickOnQuickLink(innerHeader);
     }
 
     @Then("the Issue Type Project settings {string} opens in a new window")
     public void theIssueTypeProjectSettingsOpensInANewWindow(String arg0) {
+        Assert.assertEquals("Project settings", projectSettingPage.getHeaderText());
     }
 
     /*
