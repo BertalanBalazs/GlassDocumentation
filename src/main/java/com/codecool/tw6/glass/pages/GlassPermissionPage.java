@@ -2,6 +2,7 @@ package com.codecool.tw6.glass.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,6 +12,7 @@ public class GlassPermissionPage extends BasePageObject {
 
     public GlassPermissionPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public String[][] getPermissionList(int numOfColumn) {
@@ -29,7 +31,7 @@ public class GlassPermissionPage extends BasePageObject {
     }
 
     public String[][] readPermissionDataFromCsv() {
-        String[][] records = new String[34][12];
+        String[][] records = new String[34][10];
         try (BufferedReader br = new BufferedReader(new FileReader("./src/main/resources/permissionDatas.csv"))) {
             String line;
             int i = 0;

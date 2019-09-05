@@ -4,18 +4,26 @@ import com.codecool.tw6.glass.pages.GeneralPage;
 import com.codecool.tw6.glass.pages.GlassPermissionPage;
 import com.codecool.tw6.glass.pages.LoginPage;
 import com.codecool.tw6.glass.utility.BrowserFactory;
+import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.WebDriver;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class CheckGlassPermissions {
 
-    GeneralPage generalPage = new GeneralPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    LoginPage loginPage = new LoginPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    GlassPermissionPage permissionPage = new GlassPermissionPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    private WebDriver driver = BrowserFactory.getWebDriver(System.getenv("BROWSER"));
+    private GeneralPage generalPage = new GeneralPage(driver);
+    private LoginPage loginPage = new LoginPage(driver);
+    private GlassPermissionPage permissionPage = new GlassPermissionPage(driver);
+
+    @After("@glassPermission")
+    public void tearDown(){
+        driver.quit();
+    }
 
     @Given("I am logged in as system admin")
     public void iAmLoggedInAsSystemAdmin() {
@@ -35,7 +43,7 @@ public class CheckGlassPermissions {
     @Then("Ensure it displays the right permissions for the different roles")
     public void ensureItDisplaysTheRightPermissionsForTheDifferentRoles() {
         String[][] dataFromCsv = permissionPage.readPermissionDataFromCsv();
-        String[][] checkPermissionWithGlassList = permissionPage.getPermissionList(12);
+        String[][] checkPermissionWithGlassList = permissionPage.getPermissionList(10);
         assertArrayEquals(dataFromCsv, checkPermissionWithGlassList);
     }
 
