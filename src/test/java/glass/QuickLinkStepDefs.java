@@ -2,13 +2,11 @@ package glass;
 
 import com.codecool.tw6.glass.pages.*;
 import com.codecool.tw6.glass.utility.BrowserFactory;
-import com.codecool.tw6.glass.utility.QuickLinkUtil;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 public class QuickLinkStepDefs {
 
@@ -21,14 +19,14 @@ public class QuickLinkStepDefs {
     PermissionPage permissionPage = new PermissionPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
     ProjectSettingPage projectSettingPage = new ProjectSettingPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
 
-    @Given("I am on the Basic summary page")
-    public void iAmOnTheBasicSummaryPage() {
-        basePageObject.openProjectPage("DEMO");
-    }
-
-    @And("I am logged in as system admin")
+    @Given("I am logged in as system admin")
     public void iAmLoggedInAsSystemAdmin() {
         loginPage.login();
+    }
+
+    @And("I am on the Basic summary page")
+    public void iAmOnTheBasicSummaryPage() {
+        basePageObject.openProjectPage("DEMO");
     }
 
     /*
@@ -54,6 +52,7 @@ public class QuickLinkStepDefs {
     Scenario: Issue Types quick link test
      */
 
+    /*
     @When("I choose the first option of the Issue Types dropdown")
     public void iClickOnFirstItemOfTheIssueTypesDropdown() {
         generalPage.chooseTheFirstOptionOfIssueTypes();
@@ -69,10 +68,13 @@ public class QuickLinkStepDefs {
         Assert.assertEquals("Project settings", projectSettingPage.getHeaderText());
     }
 
+     */
+
     /*
     Scenario: General page's subpages quick link test
      */
 
+    /*
     @When("I click on the {string}")
     public void iClickOnThe(String arg0) {
     }
@@ -84,5 +86,7 @@ public class QuickLinkStepDefs {
     @Then("the subpage Project settings {string} opens in a new window")
     public void theSubpageProjectSettingsOpensInANewWindow(String arg0) {
     }
+
+     */
 
 }
