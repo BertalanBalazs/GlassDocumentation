@@ -15,15 +15,21 @@ public class BasePageObject {
     protected WebDriver driver;
 
     public BasePageObject(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver=driver;
+        this.driver = driver;
+        this.driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, 10);
+        PageFactory.initElements(this.driver, this);
     }
 
-    public static String getBrowser(){
+    public static String getBrowser() {
         return BROWSER;
     }
 
-    public void navigate(String location){
+    public void navigateToLoginPage() {
+        driver.navigate().to("https://jira2.codecool.codecanvas.hu/");
+    }
+
+    public void navigate(String location) {
         driver.get(location);
     }
 
