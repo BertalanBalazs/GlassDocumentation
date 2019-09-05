@@ -14,11 +14,18 @@ public class SelectSchemePage extends BasePageObject{
     private WebElement authenticatePasswordField;
 
     @FindBy(id="schemeId_select")
-    private Select schemeSelect;
+    private WebElement schemeSelect;
+
+    @FindBy(xpath = "//option[@id='schemeId_select_10319']")
+    private WebElement demoSchemeOption;
 
     @FindBy(id="ok_submit")
-    private Select submitButton;
+    private WebElement submitButton;
     //selectByVisibleText("text here");
+
+    @FindBy(id="login-form-submit")
+    private WebElement loginButton;
+    //selectByVisibleText("text here")
 
     @FindBy(id="workflow-mapping-submit")
     private Select confirmWorkflowAssociateButton;
@@ -27,11 +34,16 @@ public class SelectSchemePage extends BasePageObject{
         super(driver);
     }
 
-    public void selectSchemeByText(String scheme){
-        schemeSelect.selectByVisibleText(scheme);
+    public void selectSchemeByValue(String scheme){
+        waitForElement(demoSchemeOption);
+        demoSchemeOption.click();
+        submitButton.click();
     }
 
     public void enterAdminPassword(){
-        authenticatePasswordField.sendKeys(System.getenv("adminPassword"));
+        waitForElement(authenticatePasswordField);
+        authenticatePasswordField.sendKeys(System.getenv("PASSWORD"));
+        loginButton.click();
     }
+
 }
