@@ -21,6 +21,12 @@ public class GeneralPage extends BasePageObject{
     @FindBy(xpath = "//input")
     private List<WebElement> detailPageInputs;
 
+    @FindBy(id = "glass-workflow-nav")
+    private WebElement issueTypeBtn;
+
+    @FindBy(xpath = "//*[@id='dropdown-issuetypes']//a[@tabindex = -1 ]//span[text() = ' TestIssue']")
+    private WebElement testIssueBtn;
+
     public GeneralPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -51,5 +57,18 @@ public class GeneralPage extends BasePageObject{
             }
         }
         return result;
+    }
+
+    public void clickOnIssueTypeBtn(){
+        waitFor(issueTypeBtn, 10);
+        issueTypeBtn.click();
+    }
+
+    public void selectMenuItem(String buttonText){
+        switch (buttonText){
+            case "TestIssue":
+                waitFor(testIssueBtn, 10).click();
+                break;
+        }
     }
 }

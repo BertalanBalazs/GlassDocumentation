@@ -7,8 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class BasePageObject {
     private static final String BROWSER = System.getenv("BROWSER");
+    private WebDriverWait wait;
 
     protected WebDriver driver;
 
@@ -33,8 +36,19 @@ public class BasePageObject {
     }
 
     public void waitForElement(WebElement element, int time){
-        WebDriverWait wait = new WebDriverWait(driver, time);
+        wait = new WebDriverWait(driver, time);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public WebElement waitFor(WebElement element, int time){
+        wait = new WebDriverWait(driver, time);
+        wait.until(ExpectedConditions.visibilityOf(element));
+        return element;
+    }
+
+    public void waitForListOfElements(List<WebElement> elements, int time){
+        wait = new WebDriverWait(driver, time);
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
     public void logIn() {
