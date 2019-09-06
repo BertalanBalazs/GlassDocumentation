@@ -34,9 +34,10 @@ public class LoginPage {
 
     public void login() {
         driver.get(url);
-        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(System.getProperty("username"));
-        wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(System.getProperty("password"));
+        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(System.getenv("JIRAUSER"));
+        wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(System.getenv("PASSWORD"));
         wait.until(ExpectedConditions.visibilityOf(loginBtn)).click();
         wait.until(ExpectedConditions.visibilityOf(logo));
     }
+
 }

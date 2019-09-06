@@ -9,13 +9,15 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import static org.junit.Assert.assertEquals;
 
 public class ValidateBasSumPageStepdefs {
-
-    GeneralPage generalPage = new GeneralPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
-    LoginPage loginPage = new LoginPage(BrowserFactory.getWebDriver(System.getenv("BROWSER")));
+    private WebDriver driver = BrowserFactory.getWebDriver(System.getenv("BROWSER"));
+    GeneralPage generalPage = new GeneralPage(driver);
+    LoginPage loginPage = new LoginPage(driver);
     private String expectedvalue;
     private String resultValue;
 
