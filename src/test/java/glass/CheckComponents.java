@@ -58,7 +58,7 @@ public class CheckComponents {
     public void tearDown(){
         driver.quit();
     }
-}
+
     /*public void deleteTestComponent() throws InterruptedException {
         generalPage.navigate("https://jira2.codecool.codecanvas.hu/projects/DEMO?selectedItem=com.atlassian.jira.jira-projects-plugin:components-page");
         componentsPage.deleteComponent("TestComponent");

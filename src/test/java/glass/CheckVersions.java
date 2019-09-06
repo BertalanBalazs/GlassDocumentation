@@ -53,7 +53,7 @@ public class CheckVersions {
     public void iSeeTheTestVersionVersionInTheList() {
         assertTrue(generalPage.checkNewlyCreatedTestVersion("TestVersion"));
     }
-}
+
 
     @After("@CheckVersions")
     public void tearDown(){
