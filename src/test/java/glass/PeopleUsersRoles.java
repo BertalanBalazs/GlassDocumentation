@@ -12,7 +12,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PeopleUsersRoles {
     private PeoplePage peoplePage;
@@ -22,7 +21,7 @@ public class PeopleUsersRoles {
     private WebDriver driver = BrowserFactory.getWebDriver(System.getenv("BROWSER"));
 
     @Before
-    public void setUp(){
+    public void setUp() {
         loginPage = new LoginPage(driver);
         peoplePage = new PeoplePage(driver);
         projectSettingPage = new ProjectSettingPage(driver);

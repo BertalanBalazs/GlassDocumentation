@@ -9,9 +9,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        features = "src/test/resource/glass/people",
+        features = "src/test/resource/glass",
         glue = "src/test/glass",
-        dryRun=false,
         monochrome=true
         )
 public class RunCucumberTest {
